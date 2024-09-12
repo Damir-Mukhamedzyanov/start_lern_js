@@ -19,12 +19,24 @@ if (personalMovieDB.const < 10) {
     alert('Произошла ошибка');
 }
 
-for (let i = 1; i <= 2; i++) {
+// for (let i = 1; i <= 2; i++) {
+//     const j = prompt('Один из последних просмотренных фильмов?', ''),
+//         k = prompt('На сколько оцените его?', '');
+//     personalMovieDB.movies[j] = k;
+//     if (j.length === 0 || j.length > 50 || j === false || k === false) {
+//         i = 1;
+//     }
+// }
+
+let i = 0;
+while (i < 2) {
     const j = prompt('Один из последних просмотренных фильмов?', ''),
         k = prompt('На сколько оцените его?', '');
     personalMovieDB.movies[j] = k;
-    if (j.length === 0 || j.length > 50 || j === false || k === false) {
-        i = 1;
+    if (j != null && k != null && j != '' && k != '' && j.length < 50) {
+        i++;
+    } else {
+        i--;
     }
 }
 
