@@ -9,13 +9,23 @@ let personalMovieDB = {
     privat: false
 };
 
-let ownMovieFilm = prompt('Один из последних просмотренных фильмов?', '');
-let ownЕstimation = prompt('На сколько оцените его?', '');
+if (personalMovieDB.const < 10) {
+    alert('Просмотрено довольно мало фильмов');
+} else if (personalMovieDB.const < 31 && personalMovieDB.const > 10) {
+    alert('Вы классический зритель');
+} else if (personalMovieDB.const > 30) {
+    alert('Вы киноман');
+} else {
+    alert('Произошла ошибка');
+}
 
-let twoMovieFilm = prompt('Один из последних просмотренных фильмов?', '');
-let twoЕstimation = prompt('На сколько оцените его?', '');
-
-personalMovieDB.movies[ownMovieFilm] = ownЕstimation;
-personalMovieDB.movies[twoMovieFilm] = twoЕstimation;
+for (let i = 1; i <= 2; i++) {
+    const j = prompt('Один из последних просмотренных фильмов?', ''),
+        k = prompt('На сколько оцените его?', '');
+    personalMovieDB.movies[j] = k;
+    if (j.length === 0 || j.length > 50 || j === false || k === false) {
+        i = 1;
+    }
+}
 
 console.log(personalMovieDB);
