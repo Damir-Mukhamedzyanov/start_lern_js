@@ -28,16 +28,27 @@ if (personalMovieDB.const < 10) {
 //     }
 // }
 
+// let i = 0;
+// while (i < 2) {
+//     const j = prompt('Один из последних просмотренных фильмов?', ''),
+//         k = prompt('На сколько оцените его?', '');
+//     personalMovieDB.movies[j] = k;
+//     if (j != null && k != null && j != '' && k != '' && j.length < 50) {
+//         i++;
+//     } else {
+//         i--;
+//     }
+// }
+
 let i = 0;
-while (i < 2) {
+do {
+    i++;
     const j = prompt('Один из последних просмотренных фильмов?', ''),
         k = prompt('На сколько оцените его?', '');
     personalMovieDB.movies[j] = k;
-    if (j != null && k != null && j != '' && k != '' && j.length < 50) {
-        i++;
-    } else {
+    if (j.length === 0 || j.length > 50 || j === false || k === false) {
         i--;
     }
-}
+} while (i < 2)
 
 console.log(personalMovieDB);
